@@ -4,8 +4,9 @@ from reportlab.lib.pagesizes import landscape
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPDF
 
-root = Path('/Users/engmohammed/Desktop/mohammad-portfolio/figma-report')
-output = Path('/Users/engmohammed/Desktop/mohammad-portfolio/Mohammad-Bakr-Portfolio-Report.pdf')
+BASE = Path(__file__).resolve().parent.parent
+root = BASE / 'figma-report'
+output = BASE / 'Mohammad-Bakr-Portfolio-Report.pdf'
 width, height = 1600, 1000
 pdf = canvas.Canvas(str(output), pagesize=(width, height), pageCompression=1)
 for svg in sorted(root.glob('*.svg')):

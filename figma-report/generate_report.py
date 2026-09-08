@@ -1,7 +1,7 @@
 from pathlib import Path
 from xml.sax.saxutils import escape
 
-OUT = Path('/Users/engmohammed/Desktop/mohammad-portfolio/figma-report')
+OUT = Path(__file__).resolve().parent
 W, H = 1600, 1000
 BG = '#F4F0E8'
 CARD = '#FBFAF6'
