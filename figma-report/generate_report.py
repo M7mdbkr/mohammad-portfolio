@@ -298,6 +298,7 @@ def page_08():
         ('AgenticOS', '16 unit tests · syntax · smoke test', 'ready / runtime excluded'),
         ('Operations Explorer', '23 core tests · API policy checks', 'ready / local core'),
         ('Rizq POS', 'npm run build passes', 'hardening before real use'),
+        ('Smart Black Box', 'C++ / ESP32 source on GitHub', 'private / access on request'),
         ('Remotion projects', 'lint + TypeScript checks pass', 'source-only / assets excluded'),
         ('Interfaces + analysis', 'static parse + source audit', 'docs + prototypes'),
     ]
