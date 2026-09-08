@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Mohammad J. Bakr — computer engineering, AI systems, automation, and product interfaces.">
+  <title>Mohammad J. Bakr — Built systems</title>
+  <style>
+    :root {
+      --paper: #f4f0e8;
+      --ink: #172126;
+      --muted: #667278;
+      --line: #c9c5ba;
+      --card: #fbfaf6;
+      --accent: #b34b2e;
+      --accent-dark: #7f2e20;
+      --blue: #176d78;
+      --shadow: 0 18px 50px rgba(23,33,38,.08);
+      --radius: 18px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .page { max-width: 1180px; margin: 0 auto; padding: 22px 24px 72px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .mark { font: 700 14px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .top-links { display: flex; gap: 18px; font: 600 12px/1 var(--mono); }
+    .top-links a { text-decoration: none; color: var(--muted); }
+    .top-links a:hover, .top-links a:focus-visible { color: var(--accent-dark); }
+    .hero { padding: 76px 0 62px; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .75fr); gap: 56px; align-items: end; }
+    .kicker { color: var(--accent-dark); font: 700 12px/1.2 var(--mono); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 18px; }
+    h1 { max-width: 760px; margin: 0; font: 500 clamp(54px, 8.5vw, 112px)/.9 var(--serif); letter-spacing: -.055em; text-wrap: balance; }
+    .intro { max-width: 450px; color: var(--muted); font-size: 17px; margin: 0; }
+    .intro strong { color: var(--ink); font-weight: 650; }
+    .hero-side { border-left: 2px solid var(--accent); padding-left: 20px; }
+    .hero-side p { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+    .hero-side .availability { color: var(--ink); font-weight: 700; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .button { display: inline-flex; align-items: center; min-height: 44px; padding: 9px 14px; border: 1px solid var(--ink); border-radius: 999px; text-decoration: none; font: 700 12px/1 var(--mono); transition: transform .18s ease, background .18s ease, color .18s ease; }
+    .button:hover, .button:focus-visible { transform: translateY(-2px); background: var(--ink); color: var(--paper); }
+    .button.primary { background: var(--accent); border-color: var(--accent); color: #fffaf3; }
+    .button.primary:hover, .button.primary:focus-visible { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 16px 0 13px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+    .section-heading h2 { margin: 0; font: 500 30px/1 var(--serif); letter-spacing: -.025em; }
+    .section-heading span { color: var(--muted); font: 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .1em; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0; }
+    .filter { min-height: 38px; padding: 8px 12px; background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; font: 600 11px/1 var(--mono); cursor: pointer; }
+    .filter:hover, .filter:focus-visible, .filter.active { color: var(--ink); border-color: var(--ink); background: var(--card); }
+    .project-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .project { grid-column: span 4; min-height: 282px; padding: 19px; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .18s ease, border-color .18s ease; }
+    .project:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .project.featured { grid-column: span 8; min-height: 330px; background: var(--ink); color: #f7f3eb; border-color: var(--ink); }
+    .project.featured .project-note, .project.featured .project-meta { color: #bec8c8; }
+    .project.featured .tag { color: #d7a896; border-color: #7a4c40; }
+    .project[hidden] { display: none; }
+    .project-top { display: flex; justify-content: space-between; align-items: start; gap: 14px; margin-bottom: 28px; }
+    .project-type { color: var(--accent-dark); font: 700 10px/1 var(--mono); letter-spacing: .13em; text-transform: uppercase; }
+    .featured .project-type { color: #e1a895; }
+    .project-index { color: var(--muted); font: 11px/1 var(--mono); }
+    .project h3 { margin: 0 0 9px; font: 500 clamp(25px, 3vw, 38px)/.98 var(--serif); letter-spacing: -.035em; }
+    .project:not(.featured) h3 { font-size: 29px; }
+    .project-note { color: var(--muted); font-size: 14px; max-width: 48ch; margin: 0; }
+    .project-bottom { margin-top: auto; padding-top: 28px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px; }
+    .tag { padding: 5px 8px; color: var(--blue); border: 1px solid #a7c6c7; border-radius: 999px; font: 10px/1 var(--mono); }
+    .project-links { display: flex; gap: 14px; align-items: center; font: 700 11px/1 var(--mono); }
+    .project-links a { color: var(--accent-dark); text-decoration: none; }
+    .featured .project-links a { color: #f1bfad; }
+    .project-links a:hover, .project-links a:focus-visible { text-decoration: underline; }
+    .project-meta { color: var(--muted); font: 10px/1.4 var(--mono); }
+    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 54px; padding: 72px 0 0; }
+    .about h2 { margin: 0; font: 500 42px/.95 var(--serif); letter-spacing: -.04em; }
+    .about-copy { max-width: 650px; color: var(--muted); font-size: 16px; }
+    .about-copy p { margin: 0 0 16px; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+    .principle { padding-top: 12px; border-top: 1px solid var(--ink); }
+    .principle b { display: block; margin-bottom: 5px; color: var(--ink); font: 700 11px/1.2 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+    .principle span { color: var(--muted); font-size: 13px; }
+    footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 86px; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font: 11px/1.4 var(--mono); }
+    @media (max-width: 820px) {
+      .hero, .about { grid-template-columns: 1fr; gap: 30px; }
+      .hero { padding-top: 54px; }
+      .project, .project.featured { grid-column: span 6; }
+      .principles { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .page { padding-inline: 16px; }
+      .top-links { gap: 10px; font-size: 10px; }
+      h1 { font-size: 61px; }
+      .project, .project.featured { grid-column: span 12; }
+      .section-heading { align-items: start; flex-direction: column; gap: 8px; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="topbar" aria-label="Primary navigation">
+      <div class="mark">MJB / 2026</div>
+      <div class="top-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/M7mdbkr" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero" aria-labelledby="intro-title">
+      <div>
+        <div class="kicker">Computer engineering · AI systems · product software</div>
+        <h1 id="intro-title">Built systems.</h1>
+      </div>
+      <div class="hero-side">
+        <p><strong>Mohammad J. Bakr</strong> builds practical software where automation, interfaces, and safety have to work together.</p>
+        <p class="availability">Based in Saudi Arabia · open to engineering roles</p>
+        <div class="actions">
+          <a class="button primary" href="#work">See the work ↓</a>
+          <a class="button" href="mailto:mohammadbakrwork@gmail.com">Contact me ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <h2 id="work-title">Selected work</h2>
+        <span>systems · products · experiments</span>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter active" type="button" data-filter="all">All work</button>
+        <button class="filter" type="button" data-filter="systems">Systems</button>
+        <button class="filter" type="button" data-filter="product">Product</button>
+        <button class="filter" type="button" data-filter="interface">Interfaces</button>
+        <button class="filter" type="button" data-filter="media">Media</button>
+      </div>
+      <div class="project-grid">
+        <article class="project featured" data-category="systems">
+          <div class="project-top"><span class="project-type">System / featured</span><span class="project-index">01</span></div>
+          <div>
+            <h3>AgenticOS</h3>
+            <p class="project-note">A local-first personal agent operating system with specialist workspaces, approval-gated external actions, Telegram and n8n integrations, a context library, schedules, page editing, and a tamper-evident audit log.</p>
+          </div>
+          <div class="project-bottom">
+            <div class="tags"><span class="tag">Python</span><span class="tag">SQLite</span><span class="tag">Vanilla JS</span><span class="tag">Automation</span></div>
+            <div class="project-links"><a href="https://github.com/M7mdbkr/agenticos" target="_blank" rel="noreferrer">GitHub ↗</a><span class="project-meta">stdlib backend · local runtime</span></div>
+          </div>
+        </article>
+
+        <article class="project" data-category="product">
+          <div class="project-top"><span class="project-type">Product</span><span class="project-index">02</span></div>
+          <div><h3>Rizq POS</h3><p class="project-note">Arabic-first RTL point-of-sale demo for cafés and restaurants: cashier and owner flows, inventory, orders, 15% VAT, receipts, and browser SQLite/WASM persistence.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">sql.js</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/rizq-pos" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="systems">
+          <div class="project-top"><span class="project-type">Automation</span><span class="project-index">03</span></div>
+          <div><h3>Arabic News Bot</h3><p class="project-note">RSS-to-Arabic publishing pipeline for cars and technology, with SQLite deduplication, owner-only Telegram commands, breaking-news polling, and weekly reports plus video scripts.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">Python</span><span class="tag">Telegram</span><span class="tag">RSS</span><span class="tag">SQLite</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/arabic-news-bot" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="systems">
+          <div class="project-top"><span class="project-type">Architecture</span><span class="project-index">04</span></div>
+          <div><h3>Alfred Clean</h3><p class="project-note">An isolated foundation for a personal assistant: explicit model roles, documented safety boundaries, reviewable state, and a clear path from inspection to approved changes.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">Python</span><span class="tag">Architecture</span><span class="tag">Safety</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/alfred-clean" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="interface">
+          <div class="project-top"><span class="project-type">Interface</span><span class="project-index">05</span></div>
+          <div><h3>Malham Line</h3><p class="project-note">An editorial route-planning interface for a transit plan, designed to communicate stops, timing, mode changes, and English/Arabic context clearly.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Arabic UI</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/malham-line" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="interface">
+          <div class="project-top"><span class="project-type">Interface</span><span class="project-index">06</span></div>
+          <div><h3>Operations Explorer</h3><p class="project-note">Interactive system map for agents, workspaces, approvals, integrations, and operational state — an explorable companion to the AgenticOS architecture.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/agentic-operations-explorer" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="media">
+          <div class="project-top"><span class="project-type">Motion</span><span class="project-index">07</span></div>
+          <div><h3>Car Meet Motion</h3><p class="project-note">Remotion composition work for vertical car-meet edits: timed clips, sequencing, camera movement, audio layers, and social-video framing.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">Remotion</span><span class="tag">React</span><span class="tag">TypeScript</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/remotion-car-meet" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="media">
+          <div class="project-top"><span class="project-type">Motion</span><span class="project-index">08</span></div>
+          <div><h3>Weekly Tech News</h3><p class="project-note">Arabic short-form news composition with caption timing, voice and music layers, and reusable Remotion scene structure.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">Remotion</span><span class="tag">Captions</span><span class="tag">Arabic</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/remotion-tech-news" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="media">
+          <div class="project-top"><span class="project-type">Creative system</span><span class="project-index">09</span></div>
+          <div><h3>WISAA Creative</h3><p class="project-note">Arabic commercial creative system for a travel product: visual direction, short-form composition, product messaging, and separated source assets.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">Remotion</span><span class="tag">Creative ops</span><span class="tag">Arabic</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/remotion-wisaa" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="media">
+          <div class="project-top"><span class="project-type">Production pipeline</span><span class="project-index">10</span></div>
+          <div><h3>Little Lanterns</h3><p class="project-note">Arabic faceless children’s-film pipeline with story structure, captions, vertical hooks, thumbnail output, and a review-oriented production manifest.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">Remotion</span><span class="tag">Storyboarding</span><span class="tag">QA</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/little-lanterns-film" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="media">
+          <div class="project-top"><span class="project-type">Render pipeline</span><span class="project-index">11</span></div>
+          <div><h3>Wheels on the Bus</h3><p class="project-note">A small storyboard and FFmpeg assembly experiment with recurring characters, explicit timing, and deterministic local rendering.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">Storyboarding</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/wheels-on-the-bus" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="interface">
+          <div class="project-top"><span class="project-type">Prototype</span><span class="project-index">12</span></div>
+          <div><h3>Job Search Dashboard</h3><p class="project-note">Bilingual job-search workspace concept covering new matches, drafts, awaiting replies, applications, and an assistant workflow.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">HTML</span><span class="tag">Workflow UX</span><span class="tag">Arabic UI</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/job-search-dashboard" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+
+        <article class="project" data-category="systems">
+          <div class="project-top"><span class="project-type">Data analysis</span><span class="project-index">13</span></div>
+          <div><h3>Crypto Signal Analyzer</h3><p class="project-note">CoinGecko-based analysis that combines recent performance, annualized volatility, drawdown, and market-cap rank into transparent risk and momentum indicators.</p></div>
+          <div class="project-bottom"><div class="tags"><span class="tag">Python</span><span class="tag">APIs</span><span class="tag">Data analysis</span></div><div class="project-links"><a href="https://github.com/M7mdbkr/crypto-signal-analyzer" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-title">
+      <h2 id="about-title">A practical builder with a systems lens.</h2>
+      <div class="about-copy">
+        <p>I’m a computer engineering student at Taif University, graduating in 2026. I work across <strong>Python, C++, TypeScript, React, SQLite, AI/LLM tooling, embedded systems, cloud networking, and automation.</strong></p>
+        <p>The common thread is making software understandable and safe to operate: local-first defaults, visible state, explicit approvals, and interfaces that make the next action clear.</p>
+        <div class="principles">
+          <div class="principle"><b>Build</b><span>Small, working systems over slideware.</span></div>
+          <div class="principle"><b>Explain</b><span>Readable architecture and honest limits.</span></div>
+          <div class="principle"><b>Ship safely</b><span>Review gates before external effects.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Mohammad J. Bakr · Saudi Arabia</span>
+      <span>Arabic native · English fluent · <a href="mailto:mohammadbakrwork@gmail.com">mohammadbakrwork@gmail.com</a></span>
+    </footer>
+  </main>
+  <script>
+    const filters = [...document.querySelectorAll('[data-filter]')];
+    const projects = [...document.querySelectorAll('[data-category]')];
+    function setFilter(category) {
+      filters.forEach((button) => {
+        const active = button.dataset.filter === category;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      projects.forEach((project) => {
+        project.hidden = category !== 'all' && project.dataset.category !== category;
+      });
+    }
+    filters.forEach((button) => button.addEventListener('click', () => setFilter(button.dataset.filter)));
+    setFilter('all');
+  </script>
+</body>
+</html>

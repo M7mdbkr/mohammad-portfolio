@@ -1,0 +1,23 @@
+from pathlib import Path
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import landscape
+from svglib.svglib import svg2rlg
+from reportlab.graphics import renderPDF
+
+root = Path('/Users/engmohammed/Desktop/mohammad-portfolio/figma-report')
+output = Path('/Users/engmohammed/Desktop/mohammad-portfolio/Mohammad-Bakr-Portfolio-Report.pdf')
+width, height = 1600, 1000
+pdf = canvas.Canvas(str(output), pagesize=(width, height), pageCompression=1)
+for svg in sorted(root.glob('*.svg')):
+    drawing = svg2rlg(str(svg))
+    if drawing is None:
+        raise RuntimeError(f'Could not parse {svg}')
+    source_width = drawing.width or width
+    source_height = drawing.height or height
+    drawing.scale(width / source_width, height / source_height)
+    renderPDF.draw(drawing, pdf, 0, 0)
+    pdf.showPage()
+pdf.setTitle('Mohammad J. Bakr — Portfolio Report')
+pdf.setAuthor('Mohammad J. Bakr')
+pdf.save()
+print(f'created {output} with {len(list(root.glob("*.svg")))} pages')
