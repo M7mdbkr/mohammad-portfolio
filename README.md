@@ -1,24 +1,35 @@
-# Mohammad J. Bakr — Portfolio
+# MJB — نسخة الموقع
 
-A static, responsive portfolio for company-facing project links.
+نسخة مطوّرة من Portfolio 6، بتاريخ 8 أكتوبر 2026.
 
-## Local preview
+## ما يضمّه الملف
+- موقع بالعربية والإنجليزية بهوية MJB وصورة شخصية بأسلوب البكسل.
+- تصميم متجاوب، قائمة للجوال، وروابط مباشرة للمشاريع.
+- عرض ثلاثي الأبعاد مع احترام إعداد تقليل الحركة.
+- ملفات العرض ومكتباته والصور موجودة داخل هذه الحزمة.
 
-```bash
-python3 -m http.server 8080
-open http://127.0.0.1:8080
-```
+## التشغيل
+ارفَع محتويات الحزمة كما هي إلى جذر استضافة تدعم المواقع الثابتة. يجب أن يبقى index.html بجوار ملفات CSS وJavaScript ومجلدي img وvendor.
 
-The page is intentionally dependency-free. The GitHub links point to the repositories prepared under `M7mdbkr`.
+للمعاينة محليًا، استخدم خادم ملفات محليًا وافتح عنوانه في المتصفح. فتح HTML مباشرة من القرص قد يمنع بعض صور العرض ثلاثي الأبعاد.
 
-## Figma-ready report
+## التواصل
+النموذج يتحقق من البيانات ثم يجهّز معاينة ورسالة بريد إلى mohammadbakerwork@gmail.com. الزائر يراجع الرسالة ويفتح تطبيق بريده أو ينسخها؛ الضغط على تجهيز الطلب لا يرسل الطلب تلقائيًا. الإرسال يحتاج تطبيق بريد مضبوطًا، ولا توجد قاعدة بيانات أو خدمة إرسال خلفية ضمن الحزمة.
 
-`Mohammad-Bakr-Portfolio-Report.pdf` is a 9-page case-study report. The individual 1600×1000 SVG frames are in `figma-report/` and can be imported into Figma in filename order.
+## ملاحظات
+- الخطوط تُحمّل من Google Fonts، وتوجد خطوط بديلة عند تعذر الاتصال.
+- الدومين mjb.solutions لم يُربط أو يُنشر ضمن تجهيز هذا الملف.
+- لم تُضف معلومات مهنية جديدة؛ محتوى المشاريع مأخوذ من الملف الأصلي.
+- حقوق مكتبات العرض ومصادرها موجودة في vendor/THIRD-PARTY.md.
 
-`Mohammad-Bakr-Portfolio-Report-v2.pdf` is the polished 8-page version. Its individual 1920×1080 SVG frames are in `figma-report-v2/` and are the recommended import set.
+## التحقق
+فُحصت العربية والإنجليزية، التجاوب، روابط المشاريع، أخطاء الحقول، الميزانية، معاينة الرسالة، وعدم ظهور أخطاء JavaScript. لم يُرسل أي بريد أثناء الاختبار.
 
-## Profile
+## البراند ومحتوى الموقع
+أُضيف شعار MJB بصيغتي SVG وPNG وعبارة «هذي بداية براندي الشخصي» وصورة للمشاركة. روجعت أوصاف المشاريع بالعربية والإنجليزية مقابل نسخها العامة والملف الأصلي؛ الميزات المخططة توصف باعتبارها قيد التطوير. يُذكر بناء أنظمة الذكاء الاصطناعي بوصفه تخصصًا ومجال خدمة، دون وصف أدوات الذكاء الاصطناعي باعتبارها طريقة تصنيع بقية الأعمال.
 
-- Computer Engineering student, Taif University (2026)
-- Focus: AI systems, automation, product software, interfaces, embedded/cloud foundations
-- Contact: mohammadbakrwork@gmail.com
+## تجهيز البحث
+تتضمن الحزمة عنوانًا ووصفًا واضحين، canonical للدومين، بيانات Person وWebSite، صورة مشاركة، robots.txt وsitemap.xml. هذه تجهيزات محلية؛ لا تعني أن الموقع نُشر أو فُهرس أو يحتل ترتيبًا محددًا.
+عند الفحص في 8 أكتوبر 2026 كان mjb.solutions يعرض صفحة Hostinger المؤقتة بعلامة noindex. الخطوة التالية رفع الحزمة إلى الاستضافة، والتحقق من ظهور الموقع على الدومين، ثم إرسال خريطة الموقع عبر Google Search Console بعد إثبات الملكية.
+
+المراجع: [قرار eCall](https://www.uqn.gov.sa/decisions-and-regulations/4001713)، [دليل البحث الرسمي](https://developers.google.com/search/docs/fundamentals/seo-starter-guide).
