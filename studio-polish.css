@@ -101,7 +101,6 @@ nav ul a { display: inline-flex; align-items: center; min-height: 40px; }
 
 /* Desktop retains the scroll-built exhibits, with a shorter path between cases. */
 .proj { height: 210vh; }
-.proj#p-alfred { height: 260vh; }
 .win { box-shadow: 8px 8px 0 var(--accent); }
 .panel { padding: clamp(20px, 2.1vw, 28px); }
 .panel p { display: block; font-size: 15px; line-height: 1.65; }
@@ -220,7 +219,7 @@ nav ul a { display: inline-flex; align-items: center; min-height: 40px; }
   .chapter p { font-size: 16px; }
   .project-index { gap: 8px; margin-top: 22px; }
   .project-index a { font-size: 12px; padding-inline: 10px; }
-  .proj, .proj#p-alfred { height: auto; min-height: 0; padding-block: 24px; }
+  .proj { height: auto; min-height: 0; padding-block: 24px; }
   .proj .stick {
     position: relative;
     top: auto;
@@ -360,7 +359,7 @@ nav ul a { display: inline-flex; align-items: center; min-height: 40px; }
   #cursor, .ripple { display: none !important; }
   .fine body, .fine a, .fine button, .fine summary { cursor: auto; }
   .fine a, .fine button, .fine summary { cursor: pointer; }
-  .proj, .proj#p-alfred { height: auto; min-height: 0; padding-block: 36px; }
+  .proj { height: auto; min-height: 0; padding-block: 36px; }
   .proj .stick, .hs .stick {
     position: relative;
     top: auto;

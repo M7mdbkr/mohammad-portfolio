@@ -1,4 +1,4 @@
-/* Small, progressive navigation additions for Portfolio 6 · Studio. */
+/* Small, progressive navigation additions for the MJB site. */
 (() => {
   'use strict';
 
@@ -90,10 +90,10 @@
     });
     workWrap.append(index);
     languageUpdates.push(() => {
-      index.setAttribute('aria-label', text('Jump to a project', 'انتقل إلى مشروع'));
+      index.setAttribute('aria-label', text('Jump to a field', 'انتقل إلى مجال'));
       projectLinks.forEach((link, position) => link.setAttribute('aria-label',
-        text(`Project ${position + 1}: ${projects[position].dataset.name}`,
-          `المشروع ${position + 1}: ${projects[position].dataset.nameAr || projects[position].dataset.name}`)));
+        text(`Field ${position + 1}: ${projects[position].dataset.name}`,
+          `المجال ${position + 1}: ${projects[position].dataset.nameAr || projects[position].dataset.name}`)));
     });
     if ('IntersectionObserver' in window) {
       const visible = new Set();
@@ -174,8 +174,8 @@
       const range = first === last ? String(first) : `${first}–${last}`;
       const label = `${range} / ${cards.length}`;
       if (position.textContent !== label) position.textContent = label;
-      position.setAttribute('aria-label', text(`Projects ${range} of ${cards.length}`,
-        `المشاريع ${range} من ${cards.length}`));
+      position.setAttribute('aria-label', text(`Fields ${range} of ${cards.length}`,
+        `المجالات ${range} من ${cards.length}`));
     };
     const schedulePosition = () => {
       if (!framePending) {
@@ -211,10 +211,10 @@
     reducedMotion.addEventListener('change', setGalleryMode);
     window.addEventListener('resize', schedulePosition, { passive: true });
     languageUpdates.push(() => {
-      track.setAttribute('aria-label', text('More projects. Use the arrow keys to browse.',
-        'مشاريع أخرى. استخدم مفاتيح الأسهم للتصفح.'));
-      previous.setAttribute('aria-label', text('Previous projects', 'المشاريع السابقة'));
-      next.setAttribute('aria-label', text('Next projects', 'المشاريع التالية'));
+      track.setAttribute('aria-label', text('Other fields. Use the arrow keys to browse.',
+        'مجالات أخرى. استخدم مفاتيح الأسهم للتصفح.'));
+      previous.setAttribute('aria-label', text('Previous fields', 'المجالات السابقة'));
+      next.setAttribute('aria-label', text('Next fields', 'المجالات التالية'));
       previous.querySelector('.gallery-arrow').textContent = arabic() ? '→' : '←';
       next.querySelector('.gallery-arrow').textContent = arabic() ? '←' : '→';
       if (nativeGallery()) track.scrollTo({ left: 0, behavior: 'instant' });
